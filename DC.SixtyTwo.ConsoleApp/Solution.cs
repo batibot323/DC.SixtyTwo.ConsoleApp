@@ -8,7 +8,9 @@ namespace DC.SixtyTwo.ConsoleApp
     {
         public int Solve (int m, int n)
         {
-            return 2;
+            int distanceFromX = m - 1;
+            int distanceFromY = n - 1;
+            return distanceFromX + distanceFromY;
         }
     }
 }
