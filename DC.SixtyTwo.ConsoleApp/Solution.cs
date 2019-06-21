@@ -6,27 +6,25 @@ namespace DC.SixtyTwo.ConsoleApp
 {
     public class Solution
     {
-        private int maxX, maxY, currentX, currentY, answer;
+        private int maxX, maxY, answer;
 
         public Solution()
         {
             maxX = 0;
             maxY = 0;
             answer = 0;
-            currentX = 0;
-            currentY = 0;
         }
         public int Solve (int m, int n)
         {
             maxX = m - 1;
             maxY = n - 1;
-            TakeAStep();
+            TakeAStep(0, 0);
             return answer;
         }
 
-        private void TakeAStep()
+        private void TakeAStep(int currentX, int currentY)
         {
-            if (IsFinished())
+            if (IsFinished(currentX, currentY))
             {
                 answer++;
             }
@@ -34,28 +32,28 @@ namespace DC.SixtyTwo.ConsoleApp
             {
                 if (currentX < maxX)
                 {
-                    StepAlongX();
+                    StepAlongX(currentX, currentY);
                 }
                 if (currentY < maxY)
                 {
-                    StepAlongY();
+                    StepAlongY(currentX, currentY);
                 }
             }
         }
 
-        private void StepAlongY()
+        private void StepAlongY(int currentX, int currentY)
         {
             currentY++;
-            TakeAStep();
+            TakeAStep(currentX, currentY);
         }
 
-        private void StepAlongX()
+        private void StepAlongX(int currentX, int currentY)
         {
             currentX++;
-            TakeAStep();
+            TakeAStep(currentX, currentY);
         }
 
-        private bool IsFinished()
+        private bool IsFinished(int currentX, int currentY)
         {
             if (currentX == maxX && currentY == maxY)
             {
