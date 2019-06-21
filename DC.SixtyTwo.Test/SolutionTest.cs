@@ -42,5 +42,11 @@ namespace DC.SixtyTwo.Test
         {
             Assert.Equal(1, uut.Solve(1, 3));
         }
+
+        [Fact]
+        public void Solve_Given2_3_ShouldReturn1()
+        {
+            Assert.Equal(3, uut.Solve(2, 3));
+        }
     }
 }
